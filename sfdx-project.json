@@ -1,0 +1,12 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    }
+  ],
+  "name": "RITHIK_LWC_ORG",
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "61.0"
+}
