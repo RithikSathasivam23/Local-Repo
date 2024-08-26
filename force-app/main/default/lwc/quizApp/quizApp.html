@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Salesforce Certified Platform Developer 1 - Quiz" icon-name="action:new_note">
+        <div class="slds-var-m-around_medium">
+            
+        <template if:true={isSubmitted}>
+            <div class="demo-only" style="padding:0.5rem; background:#d8dce2">
+                <div class="slds-text-align_center slds-text-color_inverse">
+                    <div class={isScoredFull}>You Have Scored {correctAnswers} Out of {myQuestions.length}</div>
+                </div>
+            </div>
+        </template>
+        <div class="slds-var-m-around_small">
+        <form> 
+             
+            <template for:each={myQuestions} for:item="quiz">
+                <div key={quiz.id} class="slds-var-m-bottom_medium">
+                    <div><Strong>{quiz.questionNumber}. {quiz.question}</Strong></div>
+                    <div class="slds-grid slds-gutters slds-var-p-bottom_medium">
+                        <div class="slds-col">
+                            <input type="radio" name={quiz.id} value="a" onchange={changeHandler}/>
+                            {quiz.answers.a}
+                        </div>
+                        <div class="slds-col">
+                            <input type="radio" name={quiz.id} value="b" onchange={changeHandler}/>
+                            {quiz.answers.b}
+                        </div>
+                        <div class="slds-col">
+                            <input type="radio" name={quiz.id} value="c" onchange={changeHandler}/>
+                            {quiz.answers.c}
+                        </div>
+                        <div class="slds-col">
+                            <input type="radio" name={quiz.id} value="d" onchange={changeHandler}/>
+                            {quiz.answers.d}
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <lightning-button variant="brand" type="submit" label="Submit" title="Submit Quiz" onclick={submitHandler} disabled={allNotSelected} class="slds-var-m-around_medium">
+            </lightning-button>
+
+            <lightning-button variant="brand" type="reset" label="Reset" title="Reset Quiz" onclick={resetHandler} class="slds-var-m-around_medium">
+            </lightning-button>
+        </form>
+        </div>
+    </div>
+    </lightning-card> 
+</template>
